@@ -385,7 +385,15 @@ class BaseTrainer(ABC):
             self.num_targets,
             **self.config["model_attributes"],
         ).to(self.device)
-
+        
+        #load checkpoint -> resume training
+        try:
+            _checkpoint = torch.load('/content/drive/MyDrive/RESEARCH/CuO/pretrained_models/cgcnn_all.pt')
+            self.model.load_state_dict(checkpoint['model_state_dict'])
+        except:
+            print('checkpoint failed to load') 
+            pass
+        
         if distutils.is_master():
             logging.info(
                 f"Loaded {self.model.__class__.__name__} with "
