@@ -11,7 +11,7 @@ import os
 import random
 import subprocess
 from abc import ABC, abstractmethod
-from collections import defaultdict
+from collections import defaultdict, OrderedDict
 from typing import Dict, Optional
 
 import numpy as np
@@ -389,7 +389,13 @@ class BaseTrainer(ABC):
         #load checkpoint -> resume training
         # try:
         _checkpoint = torch.load('/content/drive/MyDrive/RESEARCH/CuO/pretrained_models/cgcnn_all.pt')
-        self.model.load_state_dict(_checkpoint["state_dict"])
+        new_state_dict = OrderedDict()
+        for k, v in _checkpoint['state_dict'].items():
+            name = k[14:] # remove module.module.
+            new_state_dict[name] = v
+        
+        self.model.load_state_dict(new_state_dict)
+                
         # except:
         #     print('checkpoint failed to load') 
         #     pass
