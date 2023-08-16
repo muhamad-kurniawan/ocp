@@ -387,12 +387,12 @@ class BaseTrainer(ABC):
         ).to(self.device)
         
         #load checkpoint -> resume training
-        try:
-            _checkpoint = torch.load('/content/drive/MyDrive/RESEARCH/CuO/pretrained_models/cgcnn_all.pt')
-            self.model.load_state_dict(_checkpoint['model_state_dict'])
-        except:
-            print('checkpoint failed to load') 
-            pass
+        # try:
+        _checkpoint = torch.load('/content/drive/MyDrive/RESEARCH/CuO/pretrained_models/cgcnn_all.pt')
+        self.model.load_state_dict(_checkpoint['model_state_dict'])
+        # except:
+        #     print('checkpoint failed to load') 
+        #     pass
         
         if distutils.is_master():
             logging.info(
