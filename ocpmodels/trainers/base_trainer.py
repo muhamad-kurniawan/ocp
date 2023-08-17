@@ -396,7 +396,7 @@ class BaseTrainer(ABC):
             new_state_dict[name] = v
             
         for k, v in _checkpoint2.items():
-            name = k[14:] # remove module.module.
+            name = k + '.scale_factor'
             new_state_dict[name] = v
             
         self.model.load_state_dict(new_state_dict)
