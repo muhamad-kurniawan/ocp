@@ -6,6 +6,7 @@ dataset:
     target_mean: -1.963021471378612
     target_std: 0.9880370676995354
   - src: data/is2re/all/val_id/data.lmdb
+  - src: data/is2re/all/val_id/data.lmdb
 
 logger: tensorboard
 
