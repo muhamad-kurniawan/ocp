@@ -388,7 +388,7 @@ class BaseTrainer(ABC):
         
         #load checkpoint -> resume training
         # try:
-        _checkpoint = torch.load('/content/drive/MyDrive/RESEARCH/CuO/pretrained_models/dimenetpp_all.pt', map_location=self.device)
+        _checkpoint = torch.load('/content/drive/MyDrive/RESEARCH/CuO/pretrained_models/painn_h1024_bs4x8_is2re_all.pt', map_location=self.device)
         new_state_dict = OrderedDict()
         for k, v in _checkpoint['state_dict'].items():
             name = k[14:] # remove module.module.
