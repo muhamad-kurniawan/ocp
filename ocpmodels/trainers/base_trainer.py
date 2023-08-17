@@ -395,7 +395,7 @@ class BaseTrainer(ABC):
             name = k[14:] # remove module.module.
             new_state_dict[name] = v
             
-        for k, v in _checkpoint2['state_dict'].items():
+        for k, v in _checkpoint2.items():
             name = k[14:] # remove module.module.
             new_state_dict[name] = v
             
