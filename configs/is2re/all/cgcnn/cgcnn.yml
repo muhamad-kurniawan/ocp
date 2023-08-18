@@ -28,4 +28,4 @@ optim:
     - 120
   warmup_steps: 10
   warmup_factor: 0.2
-  max_epochs: 100
+  max_epochs: 50
