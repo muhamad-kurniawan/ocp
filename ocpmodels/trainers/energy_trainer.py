@@ -152,8 +152,7 @@ class EnergyTrainer(BaseTrainer):
 
             if per_image:
                 predictions["id"].extend(
-                    # [str(i) for i in batch[0].sid.tolist()]
-                    [str(i) for i in batch[0].sid]
+                    [str(i) for i in batch[0].sid.tolist()]
                 )
                 predictions["energy"].extend(
                     out["energy"].cpu().detach().numpy()
