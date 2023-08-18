@@ -402,8 +402,13 @@ class BaseTrainer(ABC):
         #     new_state_dict[name] = v
             
         self.model.load_state_dict(new_state_dict)
-        for name, param in self.model.named_parameters():
-            print(name, param.requires_grad)
+        # for name, param in self.model.named_parameters():
+        #     print(name, param.requires_grad)
+        for name, param in model.named_parameters():
+            if 'fcs.0.weight' in name or 'fcs.0.bias' in name or 'fcs.2.weight' in name or 'fcs.2.bias' in name or 'fcs.4.weight' in name or 'fcs.4.bias' in name or 'fc_out.weight' in name or 'fc_out.bias' in name :
+                param.requires_grad = True
+            else:
+                param.requires_grad = False
         # except:
         #     print('checkpoint failed to load') 
         #     pass
