@@ -97,7 +97,7 @@ def warmup_lr_lambda(current_step: int, optim_config):
     # keep this block for older configs that have warmup_epochs instead of warmup_steps
     # and lr_milestones are defined in epochs
     if (
-        any(x < 100 for x in optim_config["lr_milestones"])
+        any(x < 1 for x in optim_config["lr_milestones"])
         or "warmup_epochs" in optim_config
     ):
         raise Exception(
