@@ -405,7 +405,8 @@ class BaseTrainer(ABC):
         for name, param in self.model.named_parameters():
             print(name, param.requires_grad)
         for name, param in self.model.named_parameters():
-            if 'fcs.0.weight' in name or 'fcs.0.bias' in name or 'fcs.2.weight' in name or 'fcs.2.bias' in name or 'fcs.4.weight' in name or 'fcs.4.bias' in name or 'fc_out.weight' in name or 'fc_out.bias' in name :
+            # if 'fcs.0.weight' in name or 'fcs.0.bias' in name or 'fcs.2.weight' in name or 'fcs.2.bias' in name or 'fcs.4.weight' in name or 'fcs.4.bias' in name or 'fc_out.weight' in name or 'fc_out.bias' in name :
+            if 'fcs.0.weight' in name or 'fcs.0.bias' in name or 'fcs.2.weight' in name or 'fcs.2.bias' in name or 'fcs.4.weight' in name or 'fcs.4.bias' in name or 'fc_out.weight' in name or 'fc_out.bias' in name or 'conv_to_fc.weight' in name or 'conv_to_fc.bias' in name or 'convs.5.ln1.weight' in name or 'convs.5.ln1.bias' in name or 'convs.5.bn1.weight' in name or 'convs.5.bn1.bias' in name or 'convs.5.lin1.weight' in name or 'convs.5.lin1.bias' in name :
                 param.requires_grad = True
             else:
                 param.requires_grad = False
