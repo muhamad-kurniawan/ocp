@@ -402,7 +402,8 @@ class BaseTrainer(ABC):
         #     new_state_dict[name] = v
             
         self.model.load_state_dict(new_state_dict)
-                
+        for name, param in self.model.named_parameters():
+            print(name, param.requires_grad)
         # except:
         #     print('checkpoint failed to load') 
         #     pass
