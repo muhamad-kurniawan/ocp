@@ -24,9 +24,9 @@ optim:
   lr_initial: 0.001
   lr_gamma: 0.1
   lr_milestones: # steps at which lr_initial <- lr_initial * lr_gamma
-    - 17981
-    - 32366
-    - 46752
-  warmup_steps: 10788
+    - 20
+    - 60
+    - 80
+  warmup_steps: 10
   warmup_factor: 0.2
   max_epochs: 50
